@@ -5,9 +5,10 @@ import { EventsModule } from './events/events.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { config } from './db/orm.config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [EventsModule, TypeOrmModule.forRoot(config)],
+  imports: [EventsModule, TypeOrmModule.forRoot(config), AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

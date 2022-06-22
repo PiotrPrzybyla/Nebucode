@@ -12,7 +12,7 @@ import { CreateEventDto } from './dtos/create-event.dto';
 import { EventsService } from './events.service';
 
 @Controller('events')
-export class EventsControler {
+export class EventsController {
   constructor(private eventsService: EventsService) {}
   @Get()
   getEvents() {
