@@ -32,10 +32,15 @@ export class EventsControler {
   @Delete('/:id')
   @HttpCode(204)
   removeEvent(@Param('id') id: string) {
-    this.eventsService.remove(parseInt(id));
+    return this.eventsService.remove(parseInt(id));
   }
   @Patch('/:id')
-  updateEvent(@Body() body, @Param('id') id: string) {
-    this.eventsService.update(+id, body.name, body.start, body.end);
+  updateEvent(@Param('id') id: string, @Body() body) {
+    return this.eventsService.update(
+      parseInt(id),
+      body.name,
+      body.start,
+      body.end,
+    );
   }
 }
