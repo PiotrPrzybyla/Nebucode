@@ -5,7 +5,10 @@ import UserEntity from 'src/auth/user.entity';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 @Module({
-  imports: [TypeOrmModule.forFeature([UserEntity])],
+  imports: [
+    TypeOrmModule.forFeature([UserEntity]),
+    JwtModule.register({ secret: 'secret', signOptions: { expiresIn: '1d' } }),
+  ],
   controllers: [AuthController],
   providers: [AuthService],
 })
